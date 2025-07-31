@@ -7,7 +7,7 @@ const ViewCourses = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:8080/api/v1/course/getCourse')
+    axios.get('http://localhost:8080/api/v1/course/all')
       .then((response) => {
         setCourses(response.data);
       })

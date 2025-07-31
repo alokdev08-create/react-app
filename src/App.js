@@ -15,24 +15,6 @@ import About from './components/About';
 import ContactUs from './components/ContactUs';
 
 const App = () => {
-  const handleCourseAdded = async (course) => {
-    try {
-      await axios.post('http://localhost:8080/api/v1/course/saveCourse', course);
-      toast.success("Course added successfully!", {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-    } catch (error) {
-      console.error("Failed to add course:", error);
-      toast.error("Failed to add course. Please try again.", {
-        position: "top-center",
-      });
-    }
-  };
 
   return (
     <div>
@@ -45,7 +27,7 @@ const App = () => {
             <Col md="9">
               <Routes>
                 <Route path="/home" element={<Home />} />
-                <Route path="/add-course" element={<AddCourse onAdd={handleCourseAdded} />} />
+                <Route path="/add-course" element={<AddCourse/>} />
                 <Route path="/view-course" element={<ViewCourses />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact-us" element={<ContactUs />} />
